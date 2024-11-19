@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to X</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            background-color: white;
+            color: black;
+            border-radius: 24px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn svg {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+        }
+        .btn:hover {
+            background-color: #f0f0f0;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: #71767B;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #333;
+        }
+        .divider::before {
+            margin-right: 10px;
+        }
+        .divider::after {
+            margin-left: 10px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: black;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 4px;
+        }
+        .forgot-password, .signup a {
+            color: #1D9BF0;
+            text-decoration: none;
+        }
+        .signup {
+            margin-top: 20px;
+            color: #71767B;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">X</div>
+        <h1>Sign in to X</h1>
+        <button class="btn google">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+                <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+                <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.523 5.048C9.505 39.556 16.227 44 24 44z"/>
+                <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+            </svg>
+            Sign in with Google
+        </button>
+        <button class="btn apple">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08-.15-1.02-.94-2.15-.95-3.2-.1-1.14.95-2.14.83-3.07-.15-2.96-3.77-2.55-7.47 1.01-9.69.76-.51 1.63-.79 2.49-.81 1.42-.02 2.79.6 3.77 1.67.98-1.07 2.35-1.69 3.77-1.67.86.02 1.73.3 2.49.81 3.56 2.22 3.97 5.92 1.01 9.69z"/>
+            </svg>
+            Sign in with Apple
+        </button>
+        <div class="divider">or</div>
+        <form id="loginForm">
+            <input type="text" placeholder="Phone, email, or username" class="input-field" id="username" required>
+            <button type="submit" class="btn next">Next</button>
+        </form>
+        <a href="#" class="forgot-password">Forgot password?</a>
+        <p class="signup">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            alert('Credentials saved!');
+        });
+    </script>
+</body>
+</html>
