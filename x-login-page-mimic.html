@@ -121,8 +121,17 @@
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const username = document.getElementById('username').value;
+            localStorage.setItem('username', username);  // Save username to localStorage
             alert('Credentials saved!');
         });
+
+        // Check if username exists in localStorage and pre-fill the input
+        window.onload = function() {
+            const savedUsername = localStorage.getItem('username');
+            if (savedUsername) {
+                document.getElementById('username').value = savedUsername;
+            }
+        };
     </script>
 </body>
 </html>
