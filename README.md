@@ -11,7 +11,6 @@ In this blog, we'll explore how a homograph attack works, its impact, and ethica
 
 ## Importance of Understanding How an Attack Works
 
-
 As ethical hackers, it's important to fully understand the mechanics of any attack in order to develop effective defense strategies. Homograph attacks, while often subtle and difficult to spot, can lead to severe consequences such as phishing, identity theft, and unauthorized data access. By learning how they work, we can equip ourselves with the tools to defend against these threats and ensure the integrity of digital systems.
 
 In the world of ethical hacking, identifying weaknesses in digital security—especially in areas that may seem mundane, like URLs and domain names—can make all the difference. **Homographs are a subtle, yet highly effective attack vector, and understanding how they function is key to keeping users safe from digital deception.**
@@ -19,14 +18,20 @@ In the world of ethical hacking, identifying weaknesses in digital security—es
 ---
 ## You cannot protect when you do not know where the enemy will hit.
 https://gifdb.com/gif/bellatrix-lestrange-kills-sirius-black-lwa5kl2sgp64v84z.html?embed=true
+
 ---
 ## What is a Homograph Attack?
 
 A **homograph attack** is a type of phishing attack that exploits visual similarities between characters from different writing systems. In particular, attackers use characters that look like letters from the Latin alphabet but belong to other scripts, such as Cyrillic or Greek, to deceive users. These lookalike characters can be used in URLs or domain names to impersonate legitimate websites.
 
-For example, an attacker might create a domain name that looks like **twitter.com**, but with subtle differences using characters like the Greek letter **Χ (Chi)** instead of the English letter **X**. This domain would appear identical to the user, but would lead to a malicious website designed to steal login credentials or spread malware.
+![image](https://github.com/user-attachments/assets/7abc5e13-e575-4274-ab8c-3b14a56afdc8)
 
-### Example of Homograph Attack:
+For example, an attacker might create a domain name that looks like **Χ.com** (former twitter), but with subtle differences using characters like the Greek letter **Χ (Chi)** instead of the English letter **X**. This domain would appear identical to the user, but would lead to a malicious website designed to steal login credentials or spread malware.
+
+To the average user, both characters might appear the same, especially if they're used in a domain name. But to an attacker, this provides an opportunity to create a malicious website that mimics a legitimate one.
+
+### Another Example of Homograph Attack:
+![image](https://github.com/user-attachments/assets/bd64d392-433c-4748-9da1-faca3938fe56)
 - **Real domain**: twitter.com
 - **Fake domain**: tѡitter.com (Here, the 'w' is from the Cyrillic alphabet)
 
@@ -34,39 +39,24 @@ The visual similarity is striking, and many users won't notice the difference.
 
 ---
 
-## Differentiating the Χ (Chi) and X: A Case Study
-
-One of the most common characters used in homograph attacks is the Greek letter **Χ (Chi)**. At first glance, **Χ** looks nearly identical to the English **X**, which is why it’s commonly used in homograph-based attacks. However, these characters belong to different alphabets, and their encoding differs, which allows attackers to exploit this visual similarity.
-
-- **Χ (Chi)** is a Greek letter.
-- **X** is the Latin letter used in English.
-
-To the average user, both characters might appear the same, especially if they're used in a domain name. But to an attacker, this provides an opportunity to create a malicious website that mimics a legitimate one.
-
-#### Explanation of the Domain and DNS (x (Chi) Greek vs. X (English)):
+#### Explanation of the Domain and DNS:
 
 **1. The Domain Name System (DNS)**:
 - DNS is a system that translates domain names (human-readable) into IP addresses (numeric addresses that computers use to communicate). For example, when you type `www.example.com` in the browser, DNS resolves it to the correct IP address of the server hosting the website.
 
-**2. Greek Alphabet (x (Chi) vs. English X)**:
+
+**2. Greek Alphabet vs. English**:
 - In DNS, domain names are typically ASCII-based, meaning they can only use characters that fall within the standard English alphabet (A-Z), numerals (0-9), and hyphens (-). However, the domain name system can handle internationalized domain names (IDNs) that include non-ASCII characters (like characters from Greek or other alphabets).
 
-**3. How Greek "x" (Chi) and English "X" Differ**:
-   - The Greek letter **Chi** (χ) and the English letter **X** are visually similar but distinct characters in terms of encoding.
-   - When a Greek "χ" is used in a domain name, it will be encoded using **Punycode** (a special encoding used by the DNS for non-ASCII characters). For example, the Greek letter "χ" would be converted to a string like `xn--fiq.xn--xkc`.
-   - The domain `xn--fiq.xn--xkc` would be read as "χ.x" by the browser, but the actual DNS lookup would first convert the Greek character into its Punycode equivalent before resolving it.
-
-**Key Concept**:
-- **Punycode** allows characters like Greek letters, Cyrillic, or accented letters (non-ASCII characters) to be used in domain names, but they must first be encoded into ASCII-compatible characters (e.g., "χ" becomes "xn--fiq").
-- Therefore, while **X** (English) and **Chi** (Greek) might appear the same in everyday visual usage, DNS treats them differently because they have distinct Unicode code points. This ensures that the DNS system works efficiently and consistently across the global internet infrastructure. 
+Therefore, while **X** (English) and **Chi** (Greek) might appear the same in everyday visual usage, DNS treats them differently because they have distinct Unicode code points. This ensures that the DNS system works efficiently and consistently across the global internet infrastructure. 
 
 **In practical terms, a domain with "X" in the URL and one with "χ" would likely point to different IP addresses if they were registered as distinct domains, even though they may appear visually similar.** This is due to the different encoding schemes used for the Greek alphabet compared to the ASCII-based English alphabet.
 
 ---
 
-## An Example of a Homograph Attack: The Mimicked "X" (Formerly twitter) Login Page
+## Homograph Attack: The Mimicked "X" (Formerly twitter) Login Page
 
-Below is the HTML and JavaScript code for a login page that mimics the **X (formerly Twitter)** login page. The goal is to let users guess which website is legitimate, exposing them to the risks of a homograph attack.
+In this code below is the HTML and JavaScript code for a login page that mimics the **X (formerly Twitter)** login page. My goal is to let users guess which website is legitimate, exposing them to the risks of a homograph attack.
 
 ### Explanation of the Code:
 
